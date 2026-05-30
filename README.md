@@ -46,9 +46,11 @@ SYNOPSIS
 <br>
 
 import { stdio } from '@uoctamika/libraryjs';
+
 <br>
 
 stdio.printf(format: string, ...args: any[]);
+
 <br>
 
 DESCRIPTION
@@ -60,19 +62,20 @@ The format string consists of ordinary characters and conversion specifiers. Ord
 
 Supported conversion specifiers:
 
-Specifier| Description| Example Input| Output
-"%s"| String value| ""world""| "world"
-"%d"| Decimal integer| "42"| "42"
-"%f"| Floating-point number (6 decimal places)| "3.14159"| "3.141590"
-"%c"| Character (first character of string)| ""ABC""| "A"
-"%%"| Literal percent sign| -| "%"
+| Specifier | Description | Example Input | Output |
+|-----------|-------------|---------------|--------|
+| `%s` | String value | `"world"` | `"world"` |
+| `%d` | Decimal integer | `42` | `"42"` |
+| `%f` | Floating-point number (6 decimal places) | `3.14159` | `"3.141590"` |
+| `%c` | Character (first character of string) | `"ABC"` | `"A"` |
+| `%%` | Literal percent sign | - | `"%"` |
 
 Behavior for invalid arguments:
-
-Specifier| Invalid Input Behavior
-"%d"| Outputs "NaN" when the value is not an integer
-"%f"| Outputs "NaN" when the value is not a number
-"%c"| Outputs an empty string when the input string is empty
+| Specifier | Invalid Input Behavior |
+|-----------|------------------------|
+| `%d` | Returns `"NaN"` when the value is not an integer |
+| `%f` | Returns `"NaN"` when the value is not a number |
+| `%c` | Returns an empty string when the input string is empty |
 
 <br>
 RETURN VALUE
@@ -89,10 +92,13 @@ EXAMPLE
 <br>
 
 stdio.printf("Hello %s!\n", "World");
+<br>
 stdio.printf("Age: %d\n", 18);
+<br>
 stdio.printf("PI: %f\n", 3.14159);
+<br>
 stdio.printf("Grade: %c\n", "A");
-
+<br>
 <br>
 
 # Contributing
