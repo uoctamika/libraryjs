@@ -34,30 +34,30 @@ If you come from a high-level development background, some parts of the API may 
 
 ### namespace
 
-**[Input Output (stdio)](#input-output-stdio)**  - standard input output, provide a function for I/O things
+**[stdio](#input-output-stdio)**  - standard input output, provide a function for I/O things
 
 #### Input Output (stdio)
 <details>
   <summary>printf</summary>
 
-**NAME**
+NAME
 <br>
 
 stdio.printf — formatted output function.
 
 <br>
-**SYNOPSIS**
+SYNOPSIS
 <br>
 
 import { stdio } from '@uoctamika/libraryjs';
 
 <br>
 
-stdio.printf(format: string, ...args: any[]);
+stdio.printf(format: string, ...args: any[]): void;
 
 <br>
 
-**DESCRIPTION**
+DESCRIPTION
 <br>
 
 The "printf()" function writes formatted output to "stdout" (standard output).
@@ -82,7 +82,7 @@ Behavior for invalid arguments:
 | `%c` | Returns an empty string when the input string is empty |
 
 <br>
-**RETURN VALUE**
+RETURN VALUE
 <br>
 
 This function returns no value ("void").
@@ -92,7 +92,7 @@ Output is written directly to "stdout" using "process.stdout.write()".
 Unlike "console.log()", "printf()" does not automatically append a newline character. To print a new line, explicitly include "\n" in the format string.
 
 <br>
-**EXAMPLE**
+EXAMPLE
 <br>
 
 stdio.printf("Hello %s!\n", "World");
