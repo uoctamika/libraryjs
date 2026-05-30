@@ -1,64 +1,97 @@
 # libraryjs
 
 ## About
- A lightweight JavaScript & TypeScript utility library - just import and use. No configuration needed, functions are ready to use.
-many build in functions you can found here, they are makes for common things, soo you can request own functions :D
 
-## Installation & Requirement
+A lightweight JavaScript and TypeScript utility library - just import and use. No configuration required.
 
-Node.js version 18 or higher
-TypeScript Compiler (tsc, if you use typescript) version 5 or higher
+LibraryJS provides many built-in utility functions for common development tasks. If you need additional functionality, feel free to open an issue or submit a feature request.
 
+## Installation & Requirements
+
+Requirements
+
+- Node.js 18 or higher
+- TypeScript 5 or higher (only required if you use TypeScript)
+
+Install
 ```bash
 $ npm install @uoctamika/libraryjs
 ```
-
-or if you want use others versions
+Or install a specific version:
 ```bash
-$ npm install @uoctamika/libraryjs@latest # or @1.0.0 etc
+$ npm install @uoctamika/libraryjs@latest
+```
+# or
+```bash
+$ npm install @uoctamika/libraryjs@1.0.0
 ```
 
-# Documentations
+# Documentation
 
-for best experience & it work as normally should be, this library require you to __read__ the docs,
-if you from high level tech this documentations kinda feel confuse, but if you from C & C++ dev, this a home for you.
-<br>
-the following first feature are:
+For the best experience, please read the documentation before using this library.
 
-#### printf
+If you come from a high-level development background, some parts of the API may feel unusual at first. However, if you have experience with C or C++, many design choices should feel familiar.
+
+The first documented feature is:
+
+##### printf
+
 NAME
-      stdio.printf - function format output
+<br>
+stdio.printf — formatted output function.
 <br>
 SYNOPSIS
-      import { stdio } from '@uoctamika/libraryjs';
 <br>
-      stdio.printf(format: string, ...args: any[]);
+import { stdio } from '@uoctamika/libraryjs';
 <br>
-
+stdio.printf(format: string, ...args: any[]);
+<br>
 DESCRIPTION
-     The printf() function writes output to stdout (standard output) under control of a format string that specifies how subsequent arguments (or access via arguments) are converted for output.
+<br>
+The "printf()" function writes formatted output to "stdout" (standard output).
 
-     The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream; and conversion specifications, each of which results in fetching zero or more subsequent arguments.
+The format string consists of ordinary characters and conversion specifiers. Ordinary characters are copied directly to the output stream, while conversion specifiers begin with "%" and are replaced with formatted argument values.
 
-     Each conversion specification is introduced by the character %, and ends with a conversion specifier. The following conversion specifiers are available:
+Supported conversion specifiers:
 
-     %s      String (or any type converted to string) "world" world
-     %d      Decimal integer (must be integer) 42 42
-     %f      Floating-point number (6 decimal places) 3.14159 3.141590
-     %c      Character (first character of string) "ABC" A
-     %%      Literal percent sign - %
+Specifier| Description| Example Input| Output
+"%s"| String value| ""world""| "world"
+"%d"| Decimal integer| "42"| "42"
+"%f"| Floating-point number (6 decimal places)| "3.14159"| "3.141590"
+"%c"| Character (first character of string)| ""ABC""| "A"
+"%%"| Literal percent sign| -| "%"
 
-     If an argument does not match the expected specifier, the behavior is as follows:
+Behavior for invalid arguments:
 
-     %d      with non-integer outputs "NaN"
-  · %f      with non-number outputs "NaN"
-·   %c      with empty string outputs empty string
-
+Specifier| Invalid Input Behavior
+"%d"| Outputs "NaN" when the value is not an integer
+"%f"| Outputs "NaN" when the value is not a number
+"%c"| Outputs an empty string when the input string is empty
 <br>
 RETURN VALUE
-     This function returns no value (void). It writes directly to stdout (standard output) using process.stdout.write().
+<br>
+This function returns no value ("void").
 
-     Unlike console.log(), printf() does not automatically append a newline character at the end of output. You must explicitly include \n in the format string if you want a newline.
+Output is written directly to "stdout" using "process.stdout.write()".
 
-# Contributor
-If you want contribute into libraryjs, we're welcoming you to our community, always read docs, SECURITY.md, and CODE_OF_CONDUCT.md okay!
+Unlike "console.log()", "printf()" does not automatically append a newline character. To print a new line, explicitly include "\n" in the format string.
+<br>
+EXAMPLE
+<br>
+stdio.printf("Hello %s!\n", "World");
+stdio.printf("Age: %d\n", 18);
+stdio.printf("PI: %f\n", 3.14159);
+stdio.printf("Grade: %c\n", "A");
+<br>
+
+# Contributing
+
+Contributions are welcome.
+
+Before contributing, please read the following documents:
+
+- "README.md"
+- "SECURITY.md"
+- "CODE_OF_CONDUCT.md"
+
+We appreciate all bug reports, feature requests, documentation improvements, and pull requests.
