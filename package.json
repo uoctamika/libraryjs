@@ -2,22 +2,24 @@
   "name": "@uoctamika/libraryjs",
   "version": "1.0.0",
   "description": " A lightweight JavaScript & TypeScript utility library - just import and use. No configuration needed, functions are ready to use",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/cjs/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/cjs/index.d.ts"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc && npm run build:esm",
-    "build:esm": "tsc --module esnext --outDir dist/esm && node -e \"require('fs').renameSync('dist/esm/index.js', 'dist/index.mjs')\" && rm -rf dist/esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.json",
+    "build:esm": "tsc -p tsconfig.esm.json && npm run rename:mjs",
+    "rename:mjs": "find dist/esm -name '*.js' -exec sh -c 'mv \"$0\" \"${0%.js}.mjs\"' {} \\; && find dist/esm -name '*.mjs' -exec sed -i \"s/from '\\\\(.*\\\\)\\\\.js'/from '\\\\1.mjs'/g\" {} \\;",
     "clean": "rm -rf dist",
     "prepublishOnly": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
