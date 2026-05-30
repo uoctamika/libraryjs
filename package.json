@@ -1,0 +1,68 @@
+{
+  "name": "@uoctamika/libraryjs",
+  "version": "1.0.0",
+  "description": " A lightweight JavaScript & TypeScript utility library - just import and use. No configuration needed, functions are ready to use",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:esm",
+    "build:esm": "tsc --module esnext --outDir dist/esm && node -e \"require('fs').renameSync('dist/esm/index.js', 'dist/index.mjs')\" && rm -rf dist/esm",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "preversion": "npm run lint && npm run test",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uoctamika/libraryjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uoctamika/libraryjs/issues"
+  },
+  "homepage": "https://github.com/uoctamika/libraryjs#readme",
+  "keywords": [
+    "utility",
+    "typescript",
+    "javascript",
+    "library",
+    "readyToUse",
+    "buildInFunction"
+  ],
+  "author": {
+    "name": "Uoc Tamika",
+    "email": "uocdev.github.io@gmail.com",
+    "url": "https://github.com/uoctamika"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@typescript-eslint/eslint-plugin": "^8.60.0",
+    "@typescript-eslint/parser": "^8.60.0",
+    "eslint": "^10.4.1",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}
