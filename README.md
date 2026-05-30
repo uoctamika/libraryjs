@@ -38,16 +38,22 @@ The first documented feature is:
 
 NAME
 <br>
+
 stdio.printf — formatted output function.
+
 <br>
 SYNOPSIS
 <br>
+
 import { stdio } from '@uoctamika/libraryjs';
 <br>
+
 stdio.printf(format: string, ...args: any[]);
 <br>
+
 DESCRIPTION
 <br>
+
 The "printf()" function writes formatted output to "stdout" (standard output).
 
 The format string consists of ordinary characters and conversion specifiers. Ordinary characters are copied directly to the output stream, while conversion specifiers begin with "%" and are replaced with formatted argument values.
@@ -67,21 +73,26 @@ Specifier| Invalid Input Behavior
 "%d"| Outputs "NaN" when the value is not an integer
 "%f"| Outputs "NaN" when the value is not a number
 "%c"| Outputs an empty string when the input string is empty
+
 <br>
 RETURN VALUE
 <br>
+
 This function returns no value ("void").
 
 Output is written directly to "stdout" using "process.stdout.write()".
 
 Unlike "console.log()", "printf()" does not automatically append a newline character. To print a new line, explicitly include "\n" in the format string.
+
 <br>
 EXAMPLE
 <br>
+
 stdio.printf("Hello %s!\n", "World");
 stdio.printf("Age: %d\n", 18);
 stdio.printf("PI: %f\n", 3.14159);
 stdio.printf("Grade: %c\n", "A");
+
 <br>
 
 # Contributing
