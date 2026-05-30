@@ -21,7 +21,7 @@ Or install a specific version:
 ```bash
 $ npm install @uoctamika/libraryjs@latest
 ```
-# or
+or
 ```bash
 $ npm install @uoctamika/libraryjs@1.0.0
 ```
@@ -32,17 +32,21 @@ For the best experience, please read the documentation before using this library
 
 If you come from a high-level development background, some parts of the API may feel unusual at first. However, if you have experience with C or C++, many design choices should feel familiar.
 
-The first documented feature is:
+### namespace
 
-##### printf
+**[Input Output (stdio)](#input-output-stdio)**  - standard input output, provide a function for I/O things
 
-NAME
+#### Input Output (stdio)
+<details>
+  <summary>printf</summary>
+
+**NAME**
 <br>
 
 stdio.printf — formatted output function.
 
 <br>
-SYNOPSIS
+**SYNOPSIS**
 <br>
 
 import { stdio } from '@uoctamika/libraryjs';
@@ -53,7 +57,7 @@ stdio.printf(format: string, ...args: any[]);
 
 <br>
 
-DESCRIPTION
+**DESCRIPTION**
 <br>
 
 The "printf()" function writes formatted output to "stdout" (standard output).
@@ -78,7 +82,7 @@ Behavior for invalid arguments:
 | `%c` | Returns an empty string when the input string is empty |
 
 <br>
-RETURN VALUE
+**RETURN VALUE**
 <br>
 
 This function returns no value ("void").
@@ -88,7 +92,7 @@ Output is written directly to "stdout" using "process.stdout.write()".
 Unlike "console.log()", "printf()" does not automatically append a newline character. To print a new line, explicitly include "\n" in the format string.
 
 <br>
-EXAMPLE
+**EXAMPLE**
 <br>
 
 stdio.printf("Hello %s!\n", "World");
@@ -100,6 +104,8 @@ stdio.printf("PI: %f\n", 3.14159);
 stdio.printf("Grade: %c\n", "A");
 <br>
 <br>
+
+</details>
 
 # Contributing
 
