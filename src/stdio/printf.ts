@@ -1,5 +1,9 @@
 import { inspect } from 'util';
 
+const VALID_SPECIFIERS = new Set([
+  's', 'd', 'i', 'f', 'c', 'o', 'O', 'x', 'X', 'b', 'j', '%'
+]);
+
 function formatArg(arg: any, specifier: string): string {
   switch (specifier) {
     case 's': return String(arg);
@@ -19,35 +23,30 @@ function formatArg(arg: any, specifier: string): string {
 }
 
 export function printf(format: string, ...args: any[]): void {
-  let output = '';
+  const parts: string[] = [];
   let argIndex = 0;
   let i = 0;
   const len = format.length;
-  const validSpecifiers = ['s', 'd', 'i', 'f', 'c', 'o', 'O', 'x', 'X', 'b', 'j', '%'];
 
   while (i < len) {
-    if (format[i] === '%') {
-      if (i + 1 < len) {
-        const spec = format[i + 1];
-        if (spec === '%') {
-          output += '%';
-          i += 2;
-          continue;
-        }
-        if (validSpecifiers.includes(spec)) {
-          const value = args[argIndex++];
-          output += formatArg(value, spec);
-          i += 2;
-          continue;
-        }
+    const ch = format[i];
+    if (ch === '%' && i + 1 < len) {
+      const spec = format[i + 1];
+      if (spec === '%') {
+        parts.push('%');
+        i += 2;
+        continue;
       }
-      output += format[i];
-      i++;
-    } else {
-      output += format[i];
-      i++;
+      if (VALID_SPECIFIERS.has(spec)) {
+        const value = args[argIndex++];
+        parts.push(formatArg(value, spec));
+        i += 2;
+        continue;
+      }
     }
+    parts.push(ch);
+    i++;
   }
 
-  process.stdout.write(output);
+  process.stdout.write(parts.join(''));
 }
