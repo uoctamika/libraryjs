@@ -51,7 +51,7 @@ SYNOPSIS
 
 import { stdio } from '@uoctamika/libraryjs';
 
-<br>
+const {stdio } = require('@uoctamika/libraryjs');
 
 stdio.printf(format: string, ...args: any[]): void;
 
