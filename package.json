@@ -16,14 +16,11 @@
     "dist"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:cjs && npm run build:esm",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run rename:mjs",
     "build:cjs": "tsc -p tsconfig.json",
-    "build:esm": "tsc -p tsconfig.esm.json && npm run rename:mjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
     "rename:mjs": "find dist/esm -name '*.js' -exec sh -c 'mv \"$0\" \"${0%.js}.mjs\"' {} \\; && find dist/esm -name '*.mjs' -exec sed -i \"s/from '\\\\(.*\\\\)\\\\.js'/from '\\\\1.mjs'/g\" {} \\;",
-    "clean": "rm -rf dist",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src --ext .ts",
-    "format": "prettier --write \"src/**/*.ts\""
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",
