@@ -1,6 +1,6 @@
 {
   "name": "@uoctamika/libraryjs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": " A lightweight JavaScript & TypeScript utility library - just import and use. No configuration needed, functions are ready to use",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.mjs",
@@ -21,13 +21,9 @@
     "build:esm": "tsc -p tsconfig.esm.json && npm run rename:mjs",
     "rename:mjs": "find dist/esm -name '*.js' -exec sh -c 'mv \"$0\" \"${0%.js}.mjs\"' {} \\; && find dist/esm -name '*.mjs' -exec sed -i \"s/from '\\\\(.*\\\\)\\\\.js'/from '\\\\1.mjs'/g\" {} \\;",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run clean && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src --ext .ts",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "preversion": "npm run lint && npm run test",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags"
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",

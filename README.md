@@ -70,16 +70,31 @@ Supported conversion specifiers:
 |-----------|-------------|---------------|--------|
 | `%s` | String value | `"world"` | `"world"` |
 | `%d` | Decimal integer | `42` | `"42"` |
+| `%i` | Integer (parsed from input) | `"42px"` | `"42"` |
 | `%f` | Floating-point number (6 decimal places) | `3.14159` | `"3.141590"` |
 | `%c` | Character (first character of string) | `"ABC"` | `"A"` |
+| `%o` | Object (default string representation) | `{a:1}` | `"[object Object]"` |
+| `%O` | Object (full inspection, unlimited depth) | `{a:{b:2}}` | `"{ a: { b: 2 } }"` |
+| `%x` | Hexadecimal (lowercase) | `255` | `"ff"` |
+| `%X` | Hexadecimal (uppercase) | `255` | `"FF"` |
+| `%b` | Binary | `5` | `"101"` |
+| `%j` | JSON stringify | `{name:"Uoc"}` | `"{\"name\":\"Uoc\"}"` |
 | `%%` | Literal percent sign | - | `"%"` |
 
 Behavior for invalid arguments:
+
 | Specifier | Invalid Input Behavior |
 |-----------|------------------------|
-| `%d` | Returns `"NaN"` when the value is not an integer |
-| `%f` | Returns `"NaN"` when the value is not a number |
-| `%c` | Returns an empty string when the input string is empty |
+| `%d` | Returns `"NaN"` when the value is not a valid integer |
+| `%i` | Returns `"NaN"` when no integer can be parsed from the input |
+| `%f` | Returns `"NaN"` when the value is not a valid number |
+| `%c` | Returns an empty string (`""`) when the input string is empty |
+| `%o` | Returns `"[object Object]"` for non-null values using default object conversion |
+| `%O` | Returns a string representation of the value, including nested structures |
+| `%x` | Returns `"NaN"` when the value cannot be converted to an integer |
+| `%X` | Returns `"NaN"` when the value cannot be converted to an integer |
+| `%b` | Returns `"NaN"` when the value cannot be converted to an integer |
+| `%j` | Returns `"undefined"` when JSON serialization fails or the value cannot be serialized |
 
 <br>
 RETURN VALUE
