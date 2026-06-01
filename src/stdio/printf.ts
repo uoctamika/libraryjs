@@ -7,35 +7,40 @@ const VALID_SPECIFIERS = new Set([
 function formatArg(arg: any, specifier: string): string {
   switch (specifier) {
     case 's': return String(arg);
+    
     case 'd':
     case 'i': {
-      const num = Number(arg);
-      if (isNaN(num)) return 'NaN';
-      return String(Math.floor(num));
+      const parsed = parseInt(String(arg), 10);
+      return isNaN(parsed) ? 'NaN' : String(parsed);
     }
+    
     case 'f': {
-      const num = Number(arg);
-      if (isNaN(num)) return 'NaN';
-      return num.toFixed(6);
+      const parsed = parseFloat(String(arg));
+      return isNaN(parsed) ? 'NaN' : parsed.toFixed(6);
     }
-    case 'c': return typeof arg === 'string' && arg.length === 1 ? arg : String(arg)[0] || '';
+    
+    case 'c': {
+      return typeof arg === 'string' && arg.length === 1 
+        ? arg 
+        : (String(arg)[0] || '');
+    }
+    
     case 'o': return String(arg);
     case 'O': return inspect(arg, { depth: null, colors: false });
+    
     case 'x': {
-      const num = Number(arg);
-      if (isNaN(num)) return 'NaN';
-      return Math.floor(num).toString(16);
+      const parsed = parseInt(String(arg), 10);
+      return isNaN(parsed) ? 'NaN' : parsed.toString(16);
     }
     case 'X': {
-      const num = Number(arg);
-      if (isNaN(num)) return 'NaN';
-      return Math.floor(num).toString(16).toUpperCase();
+      const parsed = parseInt(String(arg), 10);
+      return isNaN(parsed) ? 'NaN' : parsed.toString(16).toUpperCase();
     }
     case 'b': {
-      const num = Number(arg);
-      if (isNaN(num)) return 'NaN';
-      return Math.floor(num).toString(2);
+      const parsed = parseInt(String(arg), 10);
+      return isNaN(parsed) ? 'NaN' : parsed.toString(2);
     }
+    
     case 'j': return JSON.stringify(arg);
     case '%': return '%';
     default: return String(arg);
