@@ -50,8 +50,7 @@ SYNOPSIS
 <br>
 
 import { stdio } from '@uoctamika/libraryjs';
-
-const {stdio } = require('@uoctamika/libraryjs');
+const { stdio } = require('@uoctamika/libraryjs');
 
 stdio.printf(format: string, ...args: any[]): void;
 
@@ -100,9 +99,9 @@ Behavior for invalid arguments:
 RETURN VALUE
 <br>
 
-This function returns no value ("void").
+This function returns number (int).
 
-Output is written directly to "stdout" using "process.stdout.write()".
+determine how much outputs is writing into stdout.
 
 Unlike "console.log()", "printf()" does not automatically append a newline character. To print a new line, explicitly include "\n" in the format string.
 
