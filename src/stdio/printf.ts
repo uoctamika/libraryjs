@@ -4,7 +4,7 @@ const VALID_SPECIFIERS = new Set([
   's', 'd', 'i', 'f', 'c', 'o', 'O', 'x', 'X', 'b', 'j', '%'
 ]);
 
-function formatArg(arg: any, specifier: string): string {
+function formatArg(arg: unknown, specifier: string): string {
   switch (specifier) {
     case 's': return String(arg);
 
@@ -40,7 +40,7 @@ function formatArg(arg: any, specifier: string): string {
   }
 }
 
-export function printf(format: string, ...args: any[]): void {
+export function printf(format: string, ...args: unknown[]): number {
   const parts: string[] = [];
   let argIndex = 0;
   let i = 0;
@@ -66,5 +66,7 @@ export function printf(format: string, ...args: any[]): void {
     i++;
   }
 
-  process.stdout.write(parts.join(''));
+  const output = parts.join('');
+  process.stdout.write(output);
+  return output.length;
 }
