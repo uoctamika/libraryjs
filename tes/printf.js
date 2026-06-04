@@ -1,6 +1,6 @@
-// test.js
+// tes/printf.js
 const assert = require('assert');
-const { printf } = require('../dist/cjs/stdio/index.js'); // asumsikan printf sudah dikompilasi ke .js
+const { printf } = require('../dist/cjs/stdio/index.js');
 
 // Tangkap output
 let output = '';
@@ -15,9 +15,9 @@ function test(name, fn) {
   output = ''; // reset output sebelum setiap tes
   try {
     fn();
-    console.log(`✓ ${name}`);
+    console.error(`✓ ${name}`);  // ke stderr agar tidak tertangkap stdout.write
   } catch (e) {
-    console.log(`✗ ${name}: ${e.message}`);
+    console.error(`✗ ${name}: ${e.message}`);
   }
 }
 
@@ -87,7 +87,7 @@ test('%i behaves like %d', () => {
 test('%f - float', () => {
   const ret = printf('%f', 3.14);
   assert.strictEqual(output, '3.140000');
-  assert.strictEqual(ret, 9);
+  assert.strictEqual(ret, 8);
 });
 
 test('%f - integer', () => {
@@ -117,7 +117,7 @@ test('%c - string with multiple chars (first char)', () => {
 
 test('%c - number (first digit char)', () => {
   const ret = printf('%c', 97);
-  assert.strictEqual(output, '9'); // String(97) = '97', first char '9'
+  assert.strictEqual(output, '9');
   assert.strictEqual(ret, 1);
 });
 
@@ -129,13 +129,13 @@ test('%c - empty string', () => {
 
 test('%c - null', () => {
   const ret = printf('%c', null);
-  assert.strictEqual(output, 'n'); // String(null) = 'null', first char 'n'
+  assert.strictEqual(output, 'n');
   assert.strictEqual(ret, 1);
 });
 
 test('%c - undefined', () => {
   const ret = printf('%c', undefined);
-  assert.strictEqual(output, 'u'); // String(undefined) = 'undefined', first char 'u'
+  assert.strictEqual(output, 'u');
   assert.strictEqual(ret, 1);
 });
 
@@ -155,7 +155,6 @@ test('%o - number', () => {
 // ================== %O ==================
 test('%O - plain object (inspect)', () => {
   const ret = printf('%O', { a: 1 });
-  // inspect({ a: 1 }, { depth: null, colors: false }) => "{ a: 1 }"
   assert.strictEqual(output, '{ a: 1 }');
   assert.strictEqual(ret, output.length);
 });
@@ -218,7 +217,6 @@ test('%j - string JSON', () => {
 
 test('%j - undefined (JSON.stringify returns undefined, join gives "")', () => {
   const ret = printf('%j', undefined);
-  // JSON.stringify(undefined) -> undefined, Array.join converts to empty string
   assert.strictEqual(output, '');
   assert.strictEqual(ret, 0);
 });
@@ -234,7 +232,7 @@ test('%% prints percent sign', () => {
 test('Multiple specifiers', () => {
   const ret = printf('%s %d %f', 'test', 1, 3.14);
   assert.strictEqual(output, 'test 1 3.140000');
-  assert.strictEqual(ret, 16);
+  assert.strictEqual(ret, 15);
 });
 
 test('No specifiers, plain string', () => {
@@ -245,16 +243,14 @@ test('No specifiers, plain string', () => {
 
 test('Unknown specifier treated as literal', () => {
   const ret = printf('%q', 123);
-  // %q not in VALID_SPECIFIERS, so prints '%q' literally, arg ignored
   assert.strictEqual(output, '%q');
   assert.strictEqual(ret, 2);
 });
 
 test('More specifiers than arguments (missing arg becomes undefined)', () => {
   const ret = printf('%s %s', 'a');
-  // Second %s gets undefined, String(undefined) = 'undefined'
   assert.strictEqual(output, 'a undefined');
-  assert.strictEqual(ret, 12);
+  assert.strictEqual(ret, 11);
 });
 
 test('More arguments than specifiers (extra ignored)', () => {
