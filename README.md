@@ -1,7 +1,10 @@
 # libraryjs
-
+[![npm version](https://img.shields.io/npm/v/%40uoctamika%2Flibraryjs)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![npm downloads](https://img.shields.io/npm/dm/%40uoctamika%2Flibraryjs)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![License](https://img.shields.io/github/license/uoctamika/libraryjs)](https://github.com/uoctamika/libraryjs/blob/main/LICENSE)
+[![Node.js](https://img.shields.io/node/v/%40uoctamika%2Flibraryjs)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.x.x-blue?logo=typescript)](https://www.typescriptlang.org/)
 ## About
-
 A lightweight JavaScript and TypeScript utility library - just import and use. No configuration required.
 
 LibraryJS provides many built-in utility functions for common development tasks. If you need additional functionality, feel free to open an issue or submit a feature request.
