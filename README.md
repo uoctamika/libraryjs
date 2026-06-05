@@ -1,9 +1,17 @@
 # libraryjs
-[![npm version](https://img.shields.io/npm/v/%40uoctamika%2Flibraryjs)](https://www.npmjs.com/package/@uoctamika/libraryjs)
-[![npm downloads](https://img.shields.io/npm/dm/%40uoctamika%2Flibraryjs)](https://www.npmjs.com/package/@uoctamika/libraryjs)
-[![License](https://img.shields.io/github/license/uoctamika/libraryjs)](https://github.com/uoctamika/libraryjs/blob/main/LICENSE)
-[![Node.js](https://img.shields.io/node/v/%40uoctamika%2Flibraryjs)](https://www.npmjs.com/package/@uoctamika/libraryjs)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6.x.x-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![npm Version](https://img.shields.io/npm/v/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![npm Downloads](https://img.shields.io/npm/dm/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![License](https://img.shields.io/github/license/uoctamika/libraryjs?style=for-the-badge&logo=opensourceinitiative&color=CB3837)](https://github.com/uoctamika/libraryjs/blob/main/LICENSE)
+
+[![Node.js](https://img.shields.io/node/v/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=node.js&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.x.x-CB3837?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+
+[![Publish Package](https://img.shields.io/github/actions/workflow/status/uoctamika/libraryjs/publish.yml?style=for-the-badge&logo=github&label=Publish&color=CB3837)](https://github.com/uoctamika/libraryjs/actions/workflows/publish.yml)
+[![Release](https://img.shields.io/github/actions/workflow/status/uoctamika/libraryjs/release.yml?style=for-the-badge&logo=github&label=Release&color=CB3837)](https://github.com/uoctamika/libraryjs/actions/workflows/release.yml)
+[![CodeQL](https://img.shields.io/github/actions/workflow/status/uoctamika/libraryjs/codeql.yml?style=for-the-badge&logo=github&label=CodeQL&color=CB3837)](https://github.com/uoctamika/libraryjs/actions/workflows/codeql.yml)
+
+[![Socket](https://img.shields.io/badge/Socket-100%2F100-CB3837?style=for-the-badge&logo=shield&logoColor=white)](https://socket.dev/npm/package/@uoctamika/libraryjs)
+
 ## About
 A lightweight JavaScript and TypeScript utility library - just import and use. No configuration required.
 
