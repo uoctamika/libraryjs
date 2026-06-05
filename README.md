@@ -1,6 +1,6 @@
 # libraryjs
 [![npm Version](https://img.shields.io/npm/v/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
-[![npm Downloads](https://img.shields.io/npm/dm/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
+[![npm Downloads](https://img.shields.io/npm/dw/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=npm&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
 [![License](https://img.shields.io/github/license/uoctamika/libraryjs?style=for-the-badge&logo=opensourceinitiative&color=CB3837)](https://github.com/uoctamika/libraryjs/blob/main/LICENSE)
 
 [![Node.js](https://img.shields.io/node/v/%40uoctamika%2Flibraryjs?style=for-the-badge&logo=node.js&color=CB3837)](https://www.npmjs.com/package/@uoctamika/libraryjs)
