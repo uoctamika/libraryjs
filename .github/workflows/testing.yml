@@ -1,4 +1,4 @@
-name: Test
+name: Testing and Quality
 
 on:
   push:
@@ -32,18 +32,15 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Run tests with native coverage
-        run: |
-          node \
-            --test \
-            --experimental-test-coverage \
-            --test-reporter=lcov \
-            --test-reporter-destination=lcov.info \
-            test/*.js
+      - name: Run test without coverage
+        run: npm run test
+
+      - name: Run tests with  coverage
+        run: npm run test:coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./lcov.info
+          files: ./coverage/lcov.info
           fail_ci_if_error: true
