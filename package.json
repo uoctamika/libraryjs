@@ -20,7 +20,10 @@
     "build:cjs": "tsc -p tsconfig.json",
     "build:esm": "tsc -p tsconfig.esm.json",
     "rename:mjs": "find dist/esm -name '*.js' -exec sh -c 'mv \"$0\" \"${0%.js}.mjs\"' {} \\; && find dist/esm -name '*.mjs' -exec sed -i \"s/from '\\\\(.*\\\\)\\\\.js'/from '\\\\1.mjs'/g\" {} \\;",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "test": "vitest run",
+    "test:watch": "vitest",
+   "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
@@ -50,7 +53,9 @@
   "sideEffects": false,
   "devDependencies": {
     "@types/node": "^25.9.1",
-    "typescript": "^6.0.3"
+    "@vitest/coverage-v8": "^4.1.8",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
   },
   "publishConfig": {
     "access": "public",
