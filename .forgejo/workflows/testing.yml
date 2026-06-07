@@ -8,10 +8,13 @@ jobs:
     runs-on: codeberg-tiny
 
     container:
-      image: node:lts
+      image: archlinux:latest
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup environment
+        run: pacman -Syu --no-confirm nodejs npm
 
       - name: Install dependencies
         run: npm ci
