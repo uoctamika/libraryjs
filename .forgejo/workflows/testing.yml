@@ -1,0 +1,27 @@
+name: Testing and Quality
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: codeberg-tiny
+
+    container:
+      image: archlinux:latest
+
+    steps:
+      - name: Install base tools
+        run: pacman -Syu --noconfirm git nodejs npm
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run coverage
+        run: npm run test:coverage
