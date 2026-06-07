@@ -35,7 +35,9 @@ function formatArg(arg: unknown, specifier: string): string {
       return typeof arg === 'number' ? arg.toString(2) : 'NaN';
 
     case 'j': return JSON.stringify(arg);
+    /* v8 ignore next */
     case '%': return '%';
+    /* v8 ignore next */
     default: return String(arg);
   }
 }
