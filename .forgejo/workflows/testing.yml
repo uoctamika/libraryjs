@@ -11,10 +11,11 @@ jobs:
       image: archlinux:latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Install base tools
+        run: pacman -Syu --noconfirm git nodejs npm
 
-      - name: Setup environment
-        run: pacman -Syu --no-confirm nodejs npm
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Install dependencies
         run: npm ci
